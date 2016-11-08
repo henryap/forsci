@@ -621,6 +621,8 @@ div.su-expand-link{float: right; margin-right: 10px;}
 
 #content-wrap article.span-23 .content-tabs ul.menu li a{width: 100%;}
 
+#email-sidebar{ float: none; }
+
 }
 
 @media (max-width: 600px){
