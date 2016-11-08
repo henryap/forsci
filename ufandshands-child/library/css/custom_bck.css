@@ -1,0 +1,351 @@
+*:focus {
+    outline: 0;
+}
+
+
+/*Navigation Styling*/
+/*Displays list items on hover*/
+#primary-nav li.parent:hover ul.children{display: block;} 
+/*Prevents sub lists from displaying*/
+#primary-nav li.parent:hover ul.children li ul{display: none;}
+/*Shows sub lists on parent list item hover*/
+#primary-nav li.parent:hover ul.children li:hover ul{display: block;margin-left: 202px;margin-top: -47px;}
+#primary-nav li.parent:hover ul.children li:first-child:hover ul{display: block;margin-left: 202px;margin-top: -46px;min-height: 40px;}
+
+/*Gives sub lists full border styling*/
+#primary-nav li.parent ul.children li ul{border: 3px solid #D7DEF0;font-size: 15px;}
+
+/*Gives sub lists at the very top border styling*/
+#primary-nav li.parent ul.children li:first-child ul{border-left: 3px solid #D7DEF0;border-bottom: 3px solid #D7DEF0; border-right: 3px solid #D7DEF0; border-top: none;}
+ 
+/*Fixes additional borders on secondary ul list items*/
+#primary-nav .parent li.current_page_item .children li {
+ border-top: none;
+border-bottom: none;
+}
+
+#primary-nav .parent li.current_page_item .children li a{
+background-color: #284ea0;
+color: white;
+}
+
+#primary-nav .parent li.current_page_item .children li a:hover{
+background-color: #243778;
+color: white;
+}
+
+/*Displays dropdown arrow on list items with children*/
+#primary-nav ul.children li.page_item_has_children a:after  {
+color: #6e89ca;
+font-family: fontAwesome;
+content: "";
+text-align: right !important;
+padding-left: 100%;
+float: left;
+margin-top: -13px;
+background: url('../images/bg-dropdown-icon-rgt.png');
+background-repeat: no-repeat;
+background-position: right center;
+height: 10px;
+width: 10px;
+}
+
+/*Prevents secondary lists from having a dropdown icon as well*/
+#primary-nav ul.children li.page_item_has_children:hover ul li a:after{background-image: none;}
+#primary-nav ul.children li.page_item_has_children ul li a:after{background-image: none;}
+
+
+#header-title-text sup{font-size: .6em;}  
+
+.main-banner{padding-top: 1px !important;}
+
+.main-banner .main-banner-meta h1 {
+     background-color: rgba(255,255,255,0.8);
+     color: #243777;
+     font-family: 'ufshands', Arial, sans-serif;
+     padding: 10px;
+  }
+
+.main-banner .main-banner-meta h1 sup{font-size: .6em;}  
+
+/*Main Banner Form*/
+.main-banner .main-banner-form {background-color: #243777;}
+.main-banner-form div.banner-form-div{padding-top: 10px}
+.main-banner-form h4{color: #fff;font-size: 2em;margin-bottom: .2em;text-align: center;}
+.main-banner-form h6{color: #fff;font-size: 1.1em;text-align: center;}
+
+.main-banner-form ul{
+    margin: 0 1.5em 1.5em 0;
+    padding-left: 1.5em;
+}
+
+.main-banner-form input {border: 1px solid white; color: #888;font-family: 'ufshands',Arial,sans-serif; font-size: 15px; margin-bottom: 10px;padding: 10px 5px; width: 100%;}
+
+.main-banner-form select{
+     background-image: url('../images/dropdown.jpg');
+    background-position: 95%;
+    -o-background-size: 10px auto;
+    -webkit-background-size: 10px auto;
+    -moz-background-size: 10px auto;
+     background-size: 10px auto;
+     background-repeat: no-repeat;
+     -webkit-appearance: none;
+     -webkit-border-radius: 0px !important;
+     -moz-border-radius: 0px !important;
+     -o-border-radius: 0px !important;
+     border-radius: 0px !important;
+     border: 0px !important;
+     color: #888;font-family: 'ufshands',Arial,sans-serif;
+     font-size: 15px;margin-bottom: 10px;padding: 10px 5px; width: 100%;
+}
+
+.main-banner-form input.error{border: 1px solid red;}
+label.error{line-height: 2em;}
+
+.main-banner-form label.error{color: white;font-family: 'ufshands',Arial,sans-serif;font-style: italic;}
+
+.main-banner-form select.half#interest{display: inline-block;float: left;margin-right: 10px; width: 49%;}
+
+.main-banner-form input.half{display: inline-block;float: left;width: 47%;}
+
+.main-banner-form input[type="submit"]{background-color: #f37021; border: none; color: white;}
+.main-banner-form input[type="submit"]:hover{background-color: #ff6f18;}
+
+
+/*Content Styling*/
+#content{width: 100%;}
+#content-wrap article.span-23 {width: 100%;}
+
+#content-wrap article.span-23 #menu-custom-content-menu{
+font-family: ufshands, Arial, sans-serif;
+font-size: 13px;
+}
+
+#content-wrap article.span-23 .content-tabs ul.menu li a{
+border-bottom: 0;
+padding: 0.5em 1em;
+font-size: 18px;
+width: 200px;
+}
+
+/*RSS Feed styling*/
+ul.wp_rss_retriever_list li.wp_rss_retriever_item{background-image: none;margin-bottom: 25px;}
+ul.wp_rss_retriever_list li a.wp_rss_retriever_title{border-bottom: 1px solid #143679;font-size: 15px;}
+.wp_rss_retriever_metadata {
+margin: .5em 0;
+border-bottom: 1px solid #ccc;
+padding-bottom: 10px;
+}
+
+ul.wp_rss_retriever_list .wp_rss_retriever_image{
+    border: 1px solid #ccc;
+}
+
+/*Tables*/
+.table-responsive>.table>tbody>tr>td{white-space: nowrap;}
+table tr, table td, tbody{width: 100%;}
+.table-responsive{overflow: visible; width: 100%;}
+.table-left{text-align: left; width: 75%;}
+.table-right{text-align: left; width: 25%;}
+
+table tr:hover{background-color: #D7DEF0 !important;}
+
+tbody tr:nth-child(even):hover td, tbody tr.even:hover td {
+background: #D7DEF0 !important;
+}
+
+/*Course Schedule Table*/
+tr th{background: #D7DEF0; border-bottom: 1px solid #6377B2;}
+.first-table-col{width: 15%;}
+
+.text-center{text-align: center;}
+.text-left{text-align: left;}
+.header-row{font-weight: bold;}
+
+.nowrap{white-space: nowrap;}
+
+.empty-last{display: none;}
+
+/*Master's Degree Application*/
+table#masters_application_info{border: 1px solid #545454;margin: 10px 0 10px 12px;}
+table#masters_application_info tr{width: auto;}
+table#masters_application_info tr td{width: auto;}
+table#masters_application_info tr td:first-child{background-color: #ccc;}
+table#masters_application_info thead tr:first-child{background-color: #F2F6FC;}
+
+
+#test-scores table{text-align: left;}
+#test-scores table tr{width: auto;}
+#test-scores table tr td{width: auto;}
+
+/*Faculty Table*/
+table.faculty-table td{padding: 20px 10px;width: 50% !important;}
+
+/*Faculty Page Styling*/
+.page #content-wrap img.faculty-photo {
+float: right;
+margin-left: 20px;
+ max-width: 200px;
+-moz-box-shadow: 0 0 5px #CCC;
+-webkit-box-shadow: 0 0 5px #CCC;
+box-shadow: 0 0 5px #CCC;
+padding: 5px;
+border: 1px solid #CCC;
+background-color: #FFF;
+}
+
+.clear{clear:both;}
+
+/*FAQ Accordion*/
+#content .su-accordion .su-spoiler {
+  margin-bottom: 0;
+}
+
+#content .su-spoiler-style-fancy, #content .su-spoiler{border: 0; border-radius: 0;}
+
+#content .su-spoiler-style-fancy > .su-spoiler-title, #content .su-spoiler > .su-spoiler-title{
+background-color: #ebeef7;
+border-bottom: 2px solid #243778;
+border-radius: 0;
+color: #243778;font-size: 1.1em;}
+
+#content .su-spoiler-content{background-color: #fff;border: 1px solid #ebeef7; border-radius: 0;font-size: 13.5px;}
+
+#content .su-spoiler-closed .su-spoiler-content {border: 0; border-radius: 0;}
+
+#content .su-spoiler-icon-plus .su-spoiler-icon:before {content: "\f0d8";}
+
+#content .su-spoiler-icon-plus.su-spoiler-closed .su-spoiler-icon:before {
+content: "\f0d7";
+} 
+
+/*Form tabs*/
+#step_two ul{list-style-type: none;margin-bottom: 20px;}
+#step_two ul li{background-image: none;}
+#step_two ul li ul{border-bottom: 1px solid #ccc;}
+#step_two ul li ul li:before{
+    font-family: fontAwesome;
+    content:"\f101";
+    margin-right: 10px;
+ }
+
+
+/*Application form styling*/
+#mandatory_form, #completion_form{
+width: 50%;
+margin-left: 25%;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+#mandatory_form input[type="text"], #mandatory_form input[type="submit"], #mandatory_form select, #completion_form input[type="text"], #completion_form input[type="submit"] {
+margin-bottom: 10px;
+width: 100%;
+}
+
+#mandatory_form input[type="submit"], #completion_form input[type="submit"]{
+background-color: #f37021;
+border: none;
+border-radius: 0;
+color: white;
+font-family: 'ufshands',Arial,sans-serif;
+font-size: 15px;
+padding: 10px 0;
+}
+
+#mandatory_form input[type="text"], #completion_form input[type="text"]{
+background-color: #f8f8f8;
+border: 1px solid #888;
+color: #888;
+font-family: 'ufshands',Arial,sans-serif;
+font-size: 15px;
+padding: 10px 5px;
+}
+
+#mandatory_form input.error, #completion_form input.error{border-color: #cc0000;}
+
+#mandatory_form select {
+background-image: url('../images/dropdown.jpg');
+background-position: 95%;
+-o-background-size: 10px auto;
+-webkit-background-size: 10px auto;
+-moz-background-size: 10px auto;
+background-size: 10px auto;
+background-repeat: no-repeat;
+-webkit-appearance: none;
+-webkit-border-radius: 0px !important;
+-moz-border-radius: 0px !important;
+-o-border-radius: 0px !important;
+border-radius: 0px !important;
+border: 1px solid #888;
+color: #888;
+font-family: 'ufshands',Arial,sans-serif;
+font-size: 15px;
+margin-bottom: 10px;
+padding: 10px 5px;
+width: 100%;
+}
+
+#mandatory_form ul{border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;list-style-type: none;margin-right: 0;padding-right: 1.5em;padding-top: 10px;}
+#mandatory_form ul li{background-image: none; clear: both; display: inline-block; margin-bottom: 10px; width: 100%;}
+#mandatory_form .checkbox{float: left; margin-top: 1px;margin-right: 10px;}
+#mandatory_form ul li p{float: left;margin-bottom: 0; width: 90%;}
+
+#mandatory_form div.radio_list p{margin-bottom: 0;}
+#mandatory_form div.radio_list ul{border-top: 0;}
+#mandatory_form div.radio_list ul li input[type="radio"]{margin-right: 5px;}
+
+
+/* Sidebar Styling */
+.main-sidebar .sidebar-box .widget_text .textwidget{}
+
+.main-sidebar .sidebar-box .widget_text p{border-bottom: none;padding-bottom: .5em;}
+
+
+/* Responsive Form Styling */
+@media (max-width: 899px){
+.main-banner-form select.half#interest{display: inline-block;float: left;margin-right: 10px; width: 100%;}
+
+.main-banner-form input.half{display: inline-block;float: left;width: 100%;}
+
+.main-banner .main-banner-meta h1 {font-size: 2em;}
+    
+#content-wrap article.span-23 .content-tabs ul.menu li a{width: 100%;}    
+    
+}
+
+@media (max-width: 600px){
+ 
+.main-content{padding: 0 20px;} 
+
+#mandatory_form, #completion_form {
+width: 86%;
+margin-right: 0;
+margin-left: 0;
+margin-top: 20px;
+margin-bottom: 20px;
+padding: 0 20px;
+}
+
+    
+#mandatory_form input, #completion_form input{
+    display: block;
+    margin-bottom: 0 !important;
+    }
+
+ .nowrap{white-space: normal !important;}   
+
+
+}
+
+/* Smartphones----------- */
+@media (max-width: 480px) {
+.main-banner .main-banner-meta h1 {
+    font-size: 1.3em;
+}}
+
+@media (max-width: 540px) {
+
+.page #content-wrap img.faculty-photo{float: none; margin: 0 0 0 0;}    
+.table-responsive>.table>tbody>tr>td{white-space: normal;}
+}
