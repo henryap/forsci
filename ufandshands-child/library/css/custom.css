@@ -610,6 +610,7 @@ div.su-expand-link{float: right; margin-right: 10px;}
   text-align: center;
   margin: 0 auto;
   width: 100%;
+  padding: 10px 0;
 }
 
 .main-banner-form select.half#interest{display: inline-block;float: left;margin-right: 10px; width: 100%;}
