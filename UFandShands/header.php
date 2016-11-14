@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<?php 
+	<?php
 	$custom_meta = get_post_custom($post->ID);
 	if (isset($custom_meta['custom_meta_noindex'][0])) {
 	 echo '<meta name="robots" content="noindex" />';
@@ -17,22 +17,31 @@
 	?>
 <?php wp_head(); ?>
 
-<?php 
+<?php
 	//banner background overrides
-	ufandshands_bannercolor(); 
-	ufandshands_bannerbg();	
-	ufandshands_formcolor();	
+	ufandshands_bannercolor();
+	ufandshands_bannerbg();
+	ufandshands_formcolor();
 ?>
 
 
 
 </head>
 <body <?php body_class($class); ?>>
-<?php 
+
+<div class="overlay"></div><!--end overlay-->
+<div class="modal_form">
+		<div class="main-banner-form">
+			<img id="close_modal" src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/closeBtn.png">
+			<?php ufandshands_bannerform(); ?>
+	</div>
+</div>
+
+<?php
     if (isset($custom_meta['custom_meta_custom_js_body_top'][0])) {
 	echo $custom_meta['custom_meta_custom_js_body_top'][0];
     }
-    
+
 ?>
 
 <?php include('library/php/menu-responsive.php'); //offcanvuas logic ?>
@@ -49,9 +58,9 @@
   <li><a href="http://www.ufl.edu/disability/" accesskey="0" title="Disability services">Disability services</a></li>
 </ul>
 
-<?php 	
+<?php
 	// turns off institutional global elements
-	$disabled_global_elements = of_get_option('opt_disable_global_elements'); 
+	$disabled_global_elements = of_get_option('opt_disable_global_elements');
 ?>
 <div class="ribbon hide-for-large" id="ribbon-responsive-top">
   <div id="responsive-top" class="container">
@@ -99,7 +108,7 @@
 	    <?php
 		get_search_form();
 	    ?>
-	    </div> 
+	    </div>
 	</div><!-- end header-search-wrap -->
 
 <?php
@@ -108,7 +117,7 @@
 $actionitem_text = of_get_option(opt_actionitem_text);
 $actionitem_url = of_get_option(opt_actionitem_url);
 // checks for a 0, if 0 then puts mobile item In page, else puts it in mobile nav there is another function that puts this in the menu-responsive-nav file
-if (of_get_option(opt_actionitem_mobile_location) == '0') { $actionitem_location_css ="hide-for-small hide-for-medium"; } 
+if (of_get_option(opt_actionitem_mobile_location) == '0') { $actionitem_location_css ="hide-for-small hide-for-medium"; }
 
 if (!empty($actionitem_text))  {
 	//echo "<h1>".of_get_option(opt_actionitem_mobile_location)."</h1>";
@@ -120,7 +129,7 @@ if (!empty($actionitem_text))  {
 </header><!-- end #ribbon-header -->
 
 <div class="ribbon hide-for-large" id="ribbon-primary-nav-responsive">
-&nbsp;	
+&nbsp;
 </div><!-- end #ribbon-primary-nav-responsive -->
 
 <div class="ribbon" id="ribbon-primary-nav">

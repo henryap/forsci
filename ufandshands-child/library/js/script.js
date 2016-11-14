@@ -4,9 +4,30 @@ doc.setAttribute("data-useragent", userAgent);
 
 $(document).ready(function() {
 
+	//Modal form for footer 'send info' cta
+	$('#send_info').click(function(){
+		$('.overlay').show(0, 'linear',function(){
+			$('.modal_form').show();
+		})
+	});
+
+	$('.overlay').click(function(){
+		$('.modal_form').hide(0, 'linear', function(){
+			$('.overlay').hide();
+		});
+
+	});
+
+	$('#close_modal').click(function(){
+		$('.modal_form').hide(0, 'linear', function(){
+			$('.overlay').hide();
+		});
+
+	});
+
     // Disable css file icons from images linked to docs (e.g. doc, pdf, xls, etc)
     $("a:has(img)").addClass('no-icon');
-   
+
     // PrettyPhoto
     function ufandshands_lightbox() {
 
@@ -65,23 +86,23 @@ $(document).ready(function() {
 
     if(jQuery().prettyPhoto) {
 
-      ufandshands_lightbox(); 
+      ufandshands_lightbox();
 
     }
-    
+
 	function responsive_menu_child_toggle() {
 		$(this).parent().find('ul').slideToggle();
 
 	} // end responsive_menu_child_toggle
-	
-	
+
+
 	//apollo tab system
 	$("#tab-one").show();
 	$(".content-tabs li a").click(function (e){
 		e.preventDefault();
 		var parent = $(this).parent("li");
 		var tab_data_id = $(this).attr("href");
-		
+
 		if(parent.hasClass("active")){
 			//do nothing
 		} else {
@@ -90,11 +111,11 @@ $(document).ready(function() {
 				parent.addClass("active");
 				$("#"+tab_data_id).show(0, '');
 			});
-			
+
 		}
-		
+
 	});
-	
+
 	//Open tabs via URL hash
 	$(function(){
 
@@ -116,48 +137,48 @@ $(document).ready(function() {
 
       }
 
-      
+
    }
 
 });
 
 function showOne(){
 
-				$(".content-tabs li").removeClass("active"); 
+				$(".content-tabs li").removeClass("active");
    				$(".apollo-tabs").hide( 0, '', function(){
    				$("#tab-one").show(0, '');
    				$(".content-tabs ul li:nth-child(1)").addClass("active");
-				
+
 			});
 }
 
 function showTwo(){
 
-				$(".content-tabs li").removeClass("active"); 
+				$(".content-tabs li").removeClass("active");
    				$(".apollo-tabs").hide( 0, '', function(){
    				$("#tab-two").show(0, '');
    				$(".content-tabs ul li:nth-child(2)").addClass("active");
-				
+
 			});
 }
 
 function showThree(){
 
-				$(".content-tabs li").removeClass("active"); 
+				$(".content-tabs li").removeClass("active");
    				$(".apollo-tabs").hide( 0, '', function(){
    				$("#tab-three").show(0, '');
    				$(".content-tabs ul li:nth-child(3)").addClass("active");
-				
+
 			});
 }
 
 function showFour(){
 
-				$(".content-tabs li").removeClass("active"); 
+				$(".content-tabs li").removeClass("active");
    				$(".apollo-tabs").hide( 0, '', function(){
    				$("#tab-four").show(0, '');
    				$(".content-tabs ul li:nth-child(4)").addClass("active");
-				
+
 			});
 }
 
@@ -193,7 +214,7 @@ if(Cookies.get('first_name')){
 }
 
 if(Cookies.get('last_name')){
-	$('#mandatory_form input[name="last_name"]').val(Cookies.get('last_name'));	
+	$('#mandatory_form input[name="last_name"]').val(Cookies.get('last_name'));
 }
 
 
@@ -207,5 +228,3 @@ if(Cookies.get('phone')){
 
 
 });
-
-

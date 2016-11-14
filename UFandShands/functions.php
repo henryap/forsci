@@ -27,13 +27,13 @@ if (!function_exists('optionsframework_init')) {
 
 add_action( 'init', 'enable_cors' );
 function enable_cors() {
-   if (function_exists('domain_mapping_siteurl')) 
+   if (function_exists('domain_mapping_siteurl'))
 	   $domain = domain_mapping_siteurl(null);
    else
 	   $domain = get_bloginfo('url');
-   
+
 	$domain = preg_replace('|http(s)?://|', '', $domain);
-	
+
     header('Access-Control-Allow-Origin: ' . $domain);
 }
 
@@ -278,7 +278,7 @@ add_filter('wp_title', 'ufandshands_title_space_rm');
 function ufandshands_styles() {
 
   wp_enqueue_style( 'style', get_stylesheet_uri() );
-  
+
   // Sidebar Collapse Styles
   if (of_get_option('opt_collapse_sidebar_nav')) {
     wp_enqueue_style( 'sidebar-nav-collapse', get_template_directory_uri() . '/library/css/sidebar-nav-collapse.css' );
@@ -295,7 +295,7 @@ function ufandshands_styles() {
   } elseif (of_get_option('opt_mega_menu') && !is_admin()) {
     wp_enqueue_style( 'mega-menu', get_template_directory_uri() . '/library/css/mega-menu.css' );
   } elseif(!is_admin()) {
-    wp_enqueue_style( 'navigation', get_template_directory_uri() . '/library/css/navigation.css' );      
+    wp_enqueue_style( 'navigation', get_template_directory_uri() . '/library/css/navigation.css' );
   }
 
 }
@@ -322,7 +322,7 @@ function ufandshands_header_adder() {
   // Site Name <title> logic
   echo "<title>";
   if (is_front_page() && ($custom_site_title)) { //if we are on the home page, and there is a custom site title, show the custom site title
-        echo $custom_site_title; 
+        echo $custom_site_title;
   }
   if (is_front_page() && (!$custom_site_title)) { //if we are on the home page, and there is NOT a custom site title, show the default
         echo $bloginfo_name;
@@ -398,15 +398,15 @@ add_action('wp_head', 'ufandshands_header_adder', 1);
 function ufandshands_add_footer() {
 	$custom_js = of_get_option('opt_custom_js');
 	$google_survey_src = of_get_option('opt_google_survey_src');
-	
+
 	if (!empty($custom_js)) {
 		echo "<script type=\"text/javascript\">" . $custom_js . "</script>\n";
 	}
 	if (!empty($google_survey_src)) {
 		echo "<script async=\"\" defer=\"\" src=\"". @$google_survey_src . "\"></script>\n";
 	}
-	
-	
+
+
 }
 add_action('wp_footer', 'ufandshands_add_footer');
 
@@ -528,7 +528,7 @@ function add_async_forscript($url)
     else if (is_admin())
         return str_replace('#asyncload', '', $url);
     else
-        return str_replace('#asyncload', '', $url)."' async='async"; 
+        return str_replace('#asyncload', '', $url)."' async='async";
 }
 add_filter('clean_url', 'add_async_forscript', 11, 1);
 
@@ -552,7 +552,7 @@ remove_action( 'wp_head', 'index_rel_link' ); // index link
 /* ----------------------------------------------------------------------------------- */
 
 function ufandshands_contact_webmaster_link() {
-	if (function_exists('domain_mapping_siteurl')) 
+	if (function_exists('domain_mapping_siteurl'))
 		$domain = domain_mapping_siteurl(null);
 	else
 		$domain = get_bloginfo('url');
@@ -613,7 +613,7 @@ if (!is_admin()) {
 // Gravity Forms tabindex fix
 add_filter("gform_tabindex", create_function("", "return 15;"));
 
-// Gravity Forms confirmation anchor 
+// Gravity Forms confirmation anchor
 add_filter("gform_confirmation_anchor", create_function("","return true;"));
 
 
@@ -1131,27 +1131,27 @@ if (!empty($site_title_size) || !empty($site_title_padding) || !empty($site_tagl
 /*
 if the mobile is set and desktop isnt set then use default
 if the mobile is set and the desktop is set then use both
-if only desktop is set 
+if only desktop is set
 
 */
 
 		$site_title_embedded_css = "<style type='text/css'>";
 		// mobile only (default desktop)
 		if (!empty($site_mobile_title_size) && empty($site_title_size)) {
-				$site_title_embedded_css .= "#header-title h1#header-title-text, #header-title h2#header-title-text { font-size: " . $site_mobile_title_size . "em !important;} "; 
-				$site_title_embedded_css .= "@media only screen and (min-width: 960px) { #header-title h1#header-title-text, #header-title h2#header-title-text { font-size:  2.6em !important; } }"; 
+				$site_title_embedded_css .= "#header-title h1#header-title-text, #header-title h2#header-title-text { font-size: " . $site_mobile_title_size . "em !important;} ";
+				$site_title_embedded_css .= "@media only screen and (min-width: 960px) { #header-title h1#header-title-text, #header-title h2#header-title-text { font-size:  2.6em !important; } }";
 			}
 
 		// desktop only (default mobile)
 		if (empty($site_mobile_title_size) && !empty($site_title_size)) {
-				$site_title_embedded_css .= "@media only screen and (min-width: 960px) { #header-title h1#header-title-text, #header-title h2#header-title-text { font-size: " . $site_title_size . "em !important; } }"; 
-			}	
-		
+				$site_title_embedded_css .= "@media only screen and (min-width: 960px) { #header-title h1#header-title-text, #header-title h2#header-title-text { font-size: " . $site_title_size . "em !important; } }";
+			}
+
 		// mobile and desktop
 		if (!empty($site_mobile_title_size) && !empty($site_title_size)) {
-			$site_title_embedded_css .= "#header-title h1#header-title-text, #header-title h2#header-title-text { font-size: " . $site_mobile_title_size . "em !important; } "; 
-			$site_title_embedded_css .= "@media only screen and (min-width: 960px) { #header-title h1#header-title-text, #header-title h2#header-title-text { font-size: " . $site_title_size . "em !important; } }"; 
-			}		
+			$site_title_embedded_css .= "#header-title h1#header-title-text, #header-title h2#header-title-text { font-size: " . $site_mobile_title_size . "em !important; } ";
+			$site_title_embedded_css .= "@media only screen and (min-width: 960px) { #header-title h1#header-title-text, #header-title h2#header-title-text { font-size: " . $site_title_size . "em !important; } }";
+			}
 
 		if (!empty($site_title_padding)) {
 			//DISABLED - padding on wrong side of the street $site_title_embedded_css .= "header #header-title h1#header-title-text, #header-title h2#header-title-text { padding-bottom: " . $site_title_padding . "px !important; }";
@@ -1322,7 +1322,7 @@ function customized_form($content) {
 add_filter('the_password_form', 'customized_form');
 
 function add_allowed_hosts($content) {
-	if (function_exists('domain_mapping_siteurl')) 
+	if (function_exists('domain_mapping_siteurl'))
 		$url = domain_mapping_siteurl(null);
 	else
 		$url = get_bloginfo('url');
@@ -1379,7 +1379,7 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 
 	// Add .swf files
     $existing_mimes['swf'] = 'application/x-shockwave-flash';
-	
+
     return $existing_mimes;
 }
 
@@ -1429,7 +1429,7 @@ add_filter('tiny_mce_before_init', 'tinymce_editor_settings');
 /* ----------------------------------------------------------------------------------- */
 /* Additional User Profile Fields
 /* ----------------------------------------------------------------------------------- */
-        
+
 add_action( 'show_user_profile', 'extra_user_profile_fields' );
 add_action( 'edit_user_profile', 'extra_user_profile_fields' );
 
@@ -1485,10 +1485,10 @@ add_filter('tiny_mce_before_init', 'alter_anchor_markup');
 
 
 function ufh_search_form( $form ) {
-	
+
 	$useGoogleSearch = of_get_option('opt_google_site_search');
 	$useGoogleCSE = of_get_option('opt_google_cse');
-	
+
 	if (!$useGoogleCSE && !$useGoogleSearch) {
 		$form = '<form method="get" id="searchform" action="' . get_bloginfo('url') . '" role="search">
 		  <input type="text" value="' . ufandshands_search_text(true) . '" id="header-search-field" name="s" />
@@ -1519,24 +1519,24 @@ function WPSearchForm() {
 
 function ufandshands_banner_logos(){
 	$pid = get_post_custom($post->ID);
-	
+
 	$c_lbox = $pid['custom_meta_hide_logos'][0];
 	if($c_lbox == "on"){
 		echo '<div style="height:250px;"></div>';
-	} else {	
+	} else {
 		if(is_page($post->ID)) {
 			$logo1 = $pid['custom_meta_page_logo1'][0];
 			$logo2 = $pid['custom_meta_page_logo2'][0];
 		} else {
 			return;
 		}
-		
+
 		if(!$logo1){ $logo1 = of_get_option("opt_banner_logo_1");}
 		if(!$logo2){ $logo2 = of_get_option("opt_banner_logo_2");}
-		
+
 		$logo1_html = '<img src="'.$logo1.'" alt="" style="margin: 3.5em 0; display: block;">';
 		$logo2_html = '<img src="'.$logo2.'" alt="" style="margin: 3.5em 0; display: block;">';
-		
+
 		echo $logo1_html;
 		echo $logo2_html;
 	}
@@ -1551,19 +1551,19 @@ function ufandshands_bannerbg(){
 	if(is_page($post->ID)) {
 		$bannerbg = $pid['custom_meta_page_bannerbg'][0];
 		$mobilebannerbg = $pid['custom_meta_page_mobilebannerbg'][0];
-		if($bannerbg){ 
+		if($bannerbg){
 			echo '<style>
 				.main-banner{background-image: url("'.$bannerbg.'"); background-position: top center; background-repeat: no-repeat;}';
 			if($mobilebannerbg){echo '@media (max-width: 600px){.main-banner{background-image: url("'.$mobilebannerbg.'"); background-position: top center; background-repeat: no-repeat;}';}
-			echo '</style>';	
-		
+			echo '</style>';
+
 		}
-		
-		
+
+
 	} else {
 		return;
 	}
-	
+
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -1575,11 +1575,11 @@ function ufandshands_bannercolor(){
 	if(is_page($post->ID)) {
 		$bannercolor = $pid['custom_meta_page_bannercolor'][0];
 		if($bannercolor){ echo '<style>.main-banner{background: '.$bannercolor.';}</style>'; }
-		
+
 	} else {
 		return;
 	}
-	
+
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -1591,11 +1591,11 @@ function ufandshands_formcolor(){
 	if(is_page($post->ID)) {
 		$formcolor = $pid['custom_meta_page_formcolor'][0];
 		if($formcolor){ echo '<style>.main-banner .main-banner-form{background-color: '.$formcolor.';}</style>'; }
-		
+
 	} else {
 		return;
 	}
-	
+
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -1614,21 +1614,21 @@ add_action( 'widgets_init', 'bannerform_widgets_init' );
 
 function ufandshands_bannerform(){
 	$pid = get_post_custom($post->ID);
-	
+
 	if(is_page($post->ID)) {
 		$c_tbox = $pid['custom_meta_page_bannerform'][0];
         $c_tbox_decode = htmlspecialchars_decode($c_tbox);
-        
+
 		if($c_tbox_decode){
 			echo $c_tbox_decode;
-		} else {	
+		} else {
 			dynamic_sidebar( 'uf-bannerform' );
-		}	
-		
+		}
+
 	} else {
 		return;
 	}
-	
+
 }
 
 
@@ -1643,11 +1643,11 @@ function ufandshands_glancemenu(){
 	if(is_page($post->ID) && checked($c_lbox, '', '')) {
 		$c_menu = $pid['custom_meta_page_glancemenu'][0];
 		wp_nav_menu(array('menu' => $c_menu, 'menu_class' => 'glancemenu'));
-		
+
 	} else{
 		return;
 	}
-	
+
 }
 /* ----------------------------------------------------------------------------------- */
 /* Apollo glance box1
@@ -1665,24 +1665,24 @@ add_action( 'widgets_init', 'glancebox1_widgets_init' );
 
 function ufandshands_glancebox1(){
 	$pid = get_post_custom($post->ID);
-	
-    
+
+
 	if(is_page($post->ID)) {
 		$c_tbox = $pid['custom_meta_page_glancebox1'][0];
         $c_tbox_decode = htmlspecialchars_decode($c_tbox);
-        
+
 		if($c_tbox){
 			echo '<div class="sidebar_widget">';
 			echo $c_tbox_decode;
 			echo '</div>';
-		} else {	
+		} else {
 			dynamic_sidebar( 'glance-box1' );
-		}	
-		
+		}
+
 	} else {
 		return;
 	}
-	
+
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -1701,23 +1701,23 @@ add_action( 'widgets_init', 'glancebox2_widgets_init' );
 
 function ufandshands_glancebox2(){
 	$pid = get_post_custom($post->ID);
-	
+
 	if(is_page($post->ID)) {
 		$c_tbox = $pid['custom_meta_page_glancebox2'][0];
         $c_tbox_decode = htmlspecialchars_decode($c_tbox);
-        
+
 		if($c_tbox){
 			echo '<div class="sidebar_widget">';
 			echo $c_tbox_decode;
 			echo '</div>';
-		} else {	
+		} else {
 			dynamic_sidebar( 'glance-box2' );
-		}	
-		
+		}
+
 	} else {
 		return;
 	}
-	
+
 }
 
 
@@ -1737,21 +1737,21 @@ add_action( 'widgets_init', 'eventlist_widgets_init' );
 
 function ufandshands_eventsWidget(){
 	$pid = get_post_custom($post->ID);
-	
+
 	if(is_page($post->ID)) {
 		$c_ebox = $pid['custom_meta_hide_events'][0];
 		if($c_ebox == "on"){
 			return;
-		} else {	
+		} else {
 			echo "<h2 style='margin-top:1.5rem;'>Key Dates</h2><div class='sidebar-box'>";
 			dynamic_sidebar( 'event-list' );
 			echo "</div><!-- eof sidebar-box -->";
-		}	
-		
+		}
+
 	} else {
 		return;
 	}
-	
+
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -1770,17 +1770,17 @@ add_action( 'widgets_init', 'appprocedure_widgets_init' );
 
 function ufandshands_appProcedure(){
 	$pid = get_post_custom($post->ID);
-	
+
 	if(is_page($post->ID)) {
 		$c_abox = $pid['custom_meta_hide_appprocedure'][0];
 		if($c_abox == "on"){
 			return;
 		} else {
-			echo "<div class='app-procedure'>";	
+			echo "<div class='app-procedure'>";
 			dynamic_sidebar( 'app-procedure' );
 			echo "</div>";
-		}	
-		
+		}
+
 	} else {
 		return;
 	}
@@ -1791,24 +1791,24 @@ function ufandshands_appProcedure(){
 /* ----------------------------------------------------------------------------------- */
 function ufandshands_tabSystem(){
 	$pid = get_post_custom($post->ID);
-	
+
 	$title_one = $pid['custom_meta_tab1_title'][0];
 	$content_one = $pid['custom_meta_tab1_html'][0];
   $content_one_decode = htmlspecialchars_decode($content_one);
-    
+
 	$title_two = $pid['custom_meta_tab2_title'][0];
 	$content_two = $pid['custom_meta_tab2_html'][0];
   $content_two_decode = htmlspecialchars_decode($content_two);
-	
-    
+
+
   $title_three = $pid['custom_meta_tab3_title'][0];
 	$content_three = $pid['custom_meta_tab3_html'][0];
 	$content_three_decode = htmlspecialchars_decode($content_three);
-    
+
   $title_four = $pid['custom_meta_tab4_title'][0];
 	$content_four = $pid['custom_meta_tab4_html'][0];
   $content_four_decode = htmlspecialchars_decode($content_four);
-	
+
    if($title_one){
     $list_class = "single_list";
   }
@@ -1821,15 +1821,15 @@ function ufandshands_tabSystem(){
   if ($title_four){
     $list_class .= " quad_list";
   }
-  
+
 	if(is_page($post->ID)) {
 		$c_tabbox = $pid['custom_meta_hide_tabsystem'][0];
 		if($c_tabbox == "on"){
 			return;
 		} else {
-			
+
 			echo '<div class="content-tabs"><ul id="menu-custom-content-menu" class="menu">';
-			
+
 			if($title_one){
 				echo '<li class="menu-item active ' . $list_class .'"><a href="tab-one">'.$title_one.'</a></li>';
 			}
@@ -1842,9 +1842,9 @@ function ufandshands_tabSystem(){
 			if($title_four){
 				echo '<li class="menu-item ' . $list_class .'"><a href="tab-four">'.$title_four.'</a></li>';
 			}
-			
+
 			echo '</ul></div>';
-			
+
 			if($title_one){
 				echo '<div id="tab-one" class="apollo-tabs">'.do_shortcode($content_one_decode).'</div>';
 			}
@@ -1857,11 +1857,96 @@ function ufandshands_tabSystem(){
 			if($title_four){
 				echo '<div id="tab-four" class="apollo-tabs">'.do_shortcode($content_four_decode).'</div>';
 			}
-		}	
-		
+		}
+
 	} else {
 		return;
 	}
 
 }
+
+/* ----------------------------------------------------------------------------------- */
+/* Application Procedure Widget
+/* ----------------------------------------------------------------------------------- */
+function footer_widget_one_init() {
+    register_sidebar( array(
+        'name' => __( 'Footer Widget One', 'UFandShands' ),
+        'id' => 'footer-one',
+        'description' => __( 'Widgets to hold footer information', 'UFandShands' ),
+        'before_widget' => '',
+        'after_widget'  => ''
+    ) );
+}
+add_action( 'widgets_init', 'footer_widget_one_init' );
+
+function footer_widget_one(){
+  $pid = get_post_custom($post->ID);
+
+  if(is_page($post->ID)) {
+
+      echo "<div class='cell-container'>";
+      echo "<div class='footer-cell'>";
+      dynamic_sidebar( 'footer-one' );
+      echo "</div>";
+      echo "</div>";
+
+  } else {
+    return;
+  }
+}
+
+function footer_widget_two_init() {
+    register_sidebar( array(
+        'name' => __( 'Footer Widget Two', 'UFandShands' ),
+        'id' => 'footer-two',
+        'description' => __( 'Widgets to hold footer information', 'UFandShands' ),
+        'before_widget' => '',
+        'after_widget'  => ''
+    ) );
+}
+add_action( 'widgets_init', 'footer_widget_two_init' );
+
+function footer_widget_two(){
+  $pid = get_post_custom($post->ID);
+
+  if(is_page($post->ID)) {
+
+      echo "<div class='cell-container'>";
+      echo "<div class='footer-cell'>";
+      dynamic_sidebar( 'footer-two' );
+      echo "</div>";
+      echo "</div>";
+
+  } else {
+    return;
+  }
+}
+
+function footer_widget_three_init() {
+    register_sidebar( array(
+        'name' => __( 'Footer Widget Three', 'UFandShands' ),
+        'id' => 'footer-three',
+        'description' => __( 'Widgets to hold footer information', 'UFandShands' ),
+        'before_widget' => '',
+        'after_widget'  => ''
+    ) );
+}
+add_action( 'widgets_init', 'footer_widget_three_init' );
+
+function footer_widget_three(){
+  $pid = get_post_custom($post->ID);
+
+  if(is_page($post->ID)) {
+
+      echo "<div class='cell-container'>";
+      echo "<div class='footer-cell'>";
+      dynamic_sidebar( 'footer-three' );
+      echo "</div>";
+      echo "</div>";
+
+  } else {
+    return;
+  }
+}
+
 ?>
