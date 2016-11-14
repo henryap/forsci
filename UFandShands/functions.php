@@ -1866,7 +1866,7 @@ function ufandshands_tabSystem(){
 }
 
 /* ----------------------------------------------------------------------------------- */
-/* Application Procedure Widget
+/* Footer Widgets
 /* ----------------------------------------------------------------------------------- */
 function footer_widget_one_init() {
     register_sidebar( array(
