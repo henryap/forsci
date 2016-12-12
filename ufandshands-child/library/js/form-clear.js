@@ -3,99 +3,97 @@ $(document).ready(function(){
 	$( "input#header-search-field" ).focus(function() {
         if(this.value=='Search Our Site'){this.value=''}
      });
-     
+
      $( "input#header-search-field" ).blur(function() {
         if(this.value==''){this.value='Search Our Site'}
      });
-     
-    $( "#fname" ).focus(function() {
+
+
+   //form clearing for apply page forms
+    $( "input#fname" ).focus(function() {
         if(this.value=='First Name*' || this.value=='Please enter your first name.'){this.value=''}
      });
-    
-    $( "#fname" ).blur(function() {
+
+    $( "input#fname" ).blur(function() {
         if(this.value==''){this.value='First Name*'}
      });
-    
-    $( "#lname" ).focus(function() {
+
+    $( "input#lname" ).focus(function() {
         if(this.value=='Last Name*' || this.value=='Please enter your last name.'){this.value=''}
-     });    
-    
-    $( "#lname" ).blur(function() {
+     });
+
+    $( "input#lname" ).blur(function() {
         if(this.value==''){this.value='Last Name*'}
-     });  
-    
-    $( "#email" ).focus(function() {
+     });
+
+    $( "input#email" ).focus(function() {
         if(this.value=='Email*' || this.value=='Please enter a valid email address.'){this.value=''}
      });
-    
-    $( "#email" ).blur(function() {
-        if(this.value==''){this.value='Email*'}
-     });   
 
-     $( ".email_sub" ).focus(function() {
-        if(this.value=='Email' || this.value=='Please enter a valid email address.'){this.value=''}
+    $( "input#email" ).blur(function() {
+        if(this.value==''){this.value='Email*'}
      });
-    
-    $( ".email_sub" ).blur(function() {
-        if(this.value==''){this.value='Email'}
-     }); 
-    
-    $( "#phone" ).focus(function() {
+
+    $( "input#phone" ).focus(function() {
         if(this.value=='Phone' || this.value=='Please enter a valid phone number.'){this.value=''}
-     });  
-    
-    $( "#phone" ).blur(function() {
+     });
+
+    $( "input#phone" ).blur(function() {
         if(this.value==''){this.value='Phone'}
      });
-    
+
      $( "#dropped_courses" ).focus(function() {
         if(this.value=='Please enter dropped courses.'){this.value=''}
-     });  
-    
+     });
+
     $( "#dropped_courses" ).blur(function() {
         if(this.value==''){this.value='Please enter dropped courses.'}
      });
-    
+
     //form clearing for apply page forms
     $( ".fname" ).focus(function() {
-        if(this.value=='First Name' || this.value=='Please enter your first name.'){this.value=''}
+        if(this.value=='First Name*' || this.value=='Please enter your first name.'){this.value=''}
      });
-    
+
     $( ".fname" ).blur(function() {
-        if(this.value==''){this.value='First Name'}
+        if(this.value==''){this.value='First Name*'}
      });
-    
+
     $( ".lname" ).focus(function() {
-        if(this.value=='Last Name' || this.value=='Please enter your last name.'){this.value=''}
-     });    
-    
-    $( ".lname" ).blur(function() {
-        if(this.value==''){this.value='Last Name'}
-     });  
-    
-    $( ".email" ).focus(function() {
-        if(this.value=='Email' || this.value=='Please enter a valid email address.'){this.value=''}
+        if(this.value=='Last Name*' || this.value=='Please enter your last name.'){this.value=''}
      });
-    
+
+    $( ".lname" ).blur(function() {
+        if(this.value==''){this.value='Last Name*'}
+     });
+
+    $( ".email" ).focus(function() {
+        if(this.value=='Email*' || this.value=='Please enter a valid email address.'){this.value=''}
+     });
+
     $( ".email" ).blur(function() {
-        if(this.value==''){this.value='Email'}
-     });   
-    
+        if(this.value==''){this.value='Email*'}
+     });
+
     $( ".message" ).focus(function() {
         if(this.value=='Message*' || this.value=='Please enter your message.'){this.value=''}
-     });  
+     });
 
     $( ".message" ).blur(function() {
         if(this.value==''){this.value='Message*'}
-     });  
-    
+     });
+
     $( ".phone" ).focus(function() {
         if(this.value=='Phone' || this.value=='Please enter a valid phone number.'){this.value=''}
-     });  
-    
+     });
+
     $( ".phone" ).blur(function() {
         if(this.value==''){this.value='Phone'}
-     });  
+     });
+
+     $( ".message" ).focus(function() {
+         if(this.value=='Message' || this.value=='Please enter your message.'){this.value=''}
+});
 
 });
 
@@ -127,8 +125,3 @@ $(document).ready(function(){
     atswp();
   }
 });
-
-
-
-
-     

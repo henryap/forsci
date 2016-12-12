@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 /* ----------------------------------------------------------------------------------- */
@@ -16,7 +16,7 @@ function my_enqueue_styles() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
     /* Adds the custom styles of the child theme */
     wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/library/css/custom.css' );
- 
+
 
 }
 
@@ -43,7 +43,7 @@ function ufandshands_child_header_common_scripts() {
 	}
 }
 add_action('wp_enqueue_scripts', 'ufandshands_child_header_common_scripts');
- 
+
 function email_sub_widget() {
     register_sidebar( array(
         'name' => 'Email Sidebar',
@@ -78,10 +78,10 @@ add_action('wp_enqueue_scripts', 'ufandshands_child_footer_common_scripts');
 /* ----------------------------------------------------------------------------------- */
 
 function ufandshands_child_add_footer() {
-    
+
 	if (is_page( 'Apply' ) ) {
  	echo "<link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\">";
-        
+
     }
 }
 add_action('wp_footer', 'ufandshands_child_add_footer');

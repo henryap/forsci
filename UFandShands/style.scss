@@ -1716,58 +1716,58 @@ footer .append-bottom {
 	background: -ms-linear-gradient(left,  #1b114d 0%,#100a2c 50%,#1b114d 100%); /* IE10+ */
 	background: linear-gradient(to right,  #1b114d 0%,#100a2c 50%,#1b114d 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b114d', endColorstr='#1b114d',GradientType=1 ); /* IE6-9 */
-
+	
 	min-height: 340px;
 	width: 100%;
 	padding-top: 1px;
-
+	
 	@include respond-to(desktop) { padding-top: 0; }
-
+	
 	.main-banner-meta{
 		float: none; width: auto;
 		margin-left: 1em;
-
+		
 		@include respond-to(desktop) {float: left; margin-left: 0; }
-
+		
 		h1{
 			color: #FFF;
 			font-size: 33px;
 			font-family: 'gotham';
 			width: 630px;
 		}
-
+		
 	}
-
+	
 	.main-banner-form{
 		float: none; width: auto;
-
-		@include respond-to(desktop) {
+		
+		@include respond-to(desktop) {  
 			float: right;
 			background-color: #0e0929;
 			min-height: 340px;
 			width: 310px;
 		}
-
+		
 		li{
 			list-style: none;
 		}
 	}
-
+	
 }
 
 .main-container{
 	padding: 1rem 0;
-}
+} 
 
 .content-tabs{
 	margin: 0 0 2em 0;
 	padding: 0;
 	&:after{clear: both; display: block; height: 0; content: " ";}
-
+	
 	ul.menu{
 		margin: 0;
 		padding-left: 0;
-
+		
 		li{
 			@include respond-to(desktop) { display: inline; float: left; width: 24.799%; }
 			display: block;
@@ -1780,12 +1780,12 @@ footer .append-bottom {
 			border-top: 4px solid #d7def0;
 			border-right: 1px solid #FFF;
 			&:last-of-type{border-right: none;}
-
+			
 			&:hover, &.active{
 				background-color: #243777;
 				border-top: 4px solid #eea271;
 			}
-
+			
 			a{
 				display: block;
 				color: #FFF;
@@ -1806,19 +1806,19 @@ footer .append-bottom {
 		float: none; width: auto;
 		font-family: 'ufshands', Arial, sans-serif;
 		@include respond-to(desktop) { width: 630px; float: left; }
-
+		
 		p{
 			font-size: 14.5px;
 		}
-
+		
 		h2{font-size: 1.5em;}
-
+		
 		table.custom-main{
-
+			
 			p{
 				padding-top: .7em;
 			}
-
+			
 			.custom-table-cta{
 				display: inline-block;
 				background-color: #e56a2c;
@@ -1828,32 +1828,32 @@ footer .append-bottom {
 				padding: .25em 2em;
 				border-top: 1px solid #e68149;
 				cursor: pointer;
-
-				&:hover{}
+				
+				&:hover{}	
 			}
-
+			
 		}
-
+		
 		hr{height: 0; width: 95%; border: none; border-bottom: 1px solid #ccc; margin: 1.5em 0;}
-
+		
 		ul.arrows{
 			list-style-image: url("images/sidebar-li-arrow.png");
 			margin: 0 0 0 1.5em;
 			font-size: 14.5px;
-
+			
 			li{
 				background: none;
 				margin-bottom: 0;
 			}
 		}
-
+		
 	}
-
+	
 	.main-sidebar{
 		float: none; width: auto;
 		font-family: 'ufshands', Arial, sans-serif;
 		@include respond-to(desktop) { width: 310px; float: right; }
-
+		
 		h2{
 			background-color: #243778;
 			color: #FFF;
@@ -1864,24 +1864,24 @@ footer .append-bottom {
 			border-bottom: none;
 			margin-bottom: 0;
 		}
-
+		
 		.menu-default-glance-menu-container ul{padding-left: 1.5em !important;}
-
+		
 		.sidebar-box{
 			background-color: #ebeef7;
 			padding: 1.5em;
 			color: #333;
 			font-size: 18px;
-
+			
 			li{list-style: none;}
-
+			
 			.sidebar_widget,.widget_text{
 				margin-top: 0;
 				padding: 0;
 				background-color: inherit;
 				border-bottom: none;
 				list-style: none;
-
+				
 				h3{
 					margin: 1rem 0 0 0;
 					padding: 0;
@@ -1891,10 +1891,10 @@ footer .append-bottom {
 					font-size: 18px;
 					font-weight: bold;
 					margin-bottom: 5px;
-
+					
 					&.arrow{ background: url("images/sidebar-li-arrow.png") center left no-repeat; padding: 0 0 0 20px; line-height: 1.5em;}
 				}
-
+				
 				.textwidget, p{
 					font-size: 17px;
 					line-height: 1.25em;
@@ -1903,7 +1903,7 @@ footer .append-bottom {
 					border-bottom: 1px solid #c2c3c8;
 				}
 			}
-
+			
 			.app-procedure{
 				.textwidget, p{
 					font-size: 16px;
@@ -1911,8 +1911,8 @@ footer .append-bottom {
 					border-bottom: none;
 					padding-bottom: 0;
 				}
-				small{font-size: 11px;}
-
+				small{font-size: 11px;}	
+				
 				.blue-box-link{
 					text-align: center;
 					background-color: #333366;
@@ -1923,14 +1923,14 @@ footer .append-bottom {
 					margin-top: 1em;
 					display: block;
 				}
-
+				
 			}
-
+			
 			ul{
-				border-bottom: 1px solid #c2c3c8;
+				border-bottom: 1px solid #c2c3c8;				
 				margin: 0 0 1em 0;
 				padding-left: 0;
-
+				
 				li{
 					padding-bottom: 1em;
 					list-style-image: url("images/sidebar-li-arrow.png");
@@ -1950,17 +1950,17 @@ footer .append-bottom {
 				padding: 0;
 				margin: 0;
 			}
-
+			
 			hr{height:0; border: none; margin:0; border-bottom: 1px solid #c2c3c8;}
-
+			
 		}
-
+		
 		.event-list{
 			background-color: #f2f4fa;
 			padding: .5em;
-
+			
 			.event-list-view{border-bottom: none; margin: 0;}
-
+			
 			.event{
 				list-style: none;
 				background: none;
@@ -1970,7 +1970,7 @@ footer .append-bottom {
 				&:last-of-type{padding-bottom: 0; border-bottom: none;}
 				&:after{clear: both; display: block; height: 0; content: " ";}
 			}
-
+			
 			.event-date{
 				float: left;
 				width: 40px;
@@ -1980,25 +1980,25 @@ footer .append-bottom {
 				text-align: center;
 				padding: .25em 0;
 				margin-right: .5rem;
-
+				
 				.event-weekday{display: none;}
 				.event-day{font-size: 25px; display: block;}
 				.event-month{font-size: 15px;}
 				.event-year{display: none;}
 			}
-
+			
 			.event-info{
 				float: left; width: auto;
 				@include respond-to(desktop) { float: right; width: 178px; }
-
+				
 				font-size: 16px;
 				color: #555;
 				line-height: 1.5em;
-
+				
 				h3{margin: 0; font-weight: normal; font-size: 16px; line-height: 1.35em;}
 				p{border-bottom: none; padding-bottom: 0;  font-size: 15px;}
 			}
-
+			
 		}
 	}
 
@@ -2007,23 +2007,23 @@ footer .append-bottom {
 	width: 100%;
 	background: #ecf0f8;
 	padding-top: 5px;
-
+	
 	h2{
 		text-align: center;
 		width: 100%;
 		border-top: 2px solid #dadee6;
 		padding-top: 2rem;
 	}
-
+	
 	.footer-cell{
 		float: left;
 		width: 33%;
 		text-align: center;
 		padding: 1rem 0;
-
+		
 		h3{color: #555555; font-size: 1.6em; padding-top: .25em;}
 	}
-
+	
 }
 
 

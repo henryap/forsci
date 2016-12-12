@@ -1,6 +1,7 @@
 <!-- apollo footer -->
 <section class="apollo-footer">
-	<div class="container">		
+	<div class="container">
+
 		 	<!--
 		 	Footer Widget one
 		 	Edit in Wordpress Widget area
@@ -16,6 +17,6 @@
 			Edit in Wordpress Widget area
 			-->
 			<?php footer_widget_three() ?>
-	</div>
+		</div>
 </section>
 <!-- eof apollo footer -->

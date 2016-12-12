@@ -546,6 +546,19 @@ remove_action('wp_head', 'wp_generator'); // Removes WP version from head
 //remove_action( 'wp_head', 'rsd_link' ); // Removes the link to the Really Simple Discovery service endpoint, EditURI link
 remove_action( 'wp_head', 'index_rel_link' ); // index link
 
+/* ----------------------------------------------------------------------------------- */
+/* Remove wp version param from any enqueued scripts
+/* ----------------------------------------------------------------------------------- */
+
+
+function vc_remove_wp_ver_css_js( $src ) {
+    if ( strpos( $src, 'ver=' ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
+add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
+add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
+
 
 /* ----------------------------------------------------------------------------------- */
 /* 	Contact Webmaster Link -- Generates the proper link to contact the webmaster
@@ -1786,88 +1799,7 @@ function ufandshands_appProcedure(){
 	}
 }
 
-/* ----------------------------------------------------------------------------------- */
-/*  Apollo Tab System
-/* ----------------------------------------------------------------------------------- */
-function ufandshands_tabSystem(){
-	$pid = get_post_custom($post->ID);
-
-	$title_one = $pid['custom_meta_tab1_title'][0];
-	$content_one = $pid['custom_meta_tab1_html'][0];
-  $content_one_decode = htmlspecialchars_decode($content_one);
-
-	$title_two = $pid['custom_meta_tab2_title'][0];
-	$content_two = $pid['custom_meta_tab2_html'][0];
-  $content_two_decode = htmlspecialchars_decode($content_two);
-
-
-  $title_three = $pid['custom_meta_tab3_title'][0];
-	$content_three = $pid['custom_meta_tab3_html'][0];
-	$content_three_decode = htmlspecialchars_decode($content_three);
-
-  $title_four = $pid['custom_meta_tab4_title'][0];
-	$content_four = $pid['custom_meta_tab4_html'][0];
-  $content_four_decode = htmlspecialchars_decode($content_four);
-
-   if($title_one){
-    $list_class = "single_list";
-  }
-  if ($title_two) {
-    $list_class .= " double_list";
-  }
-  if ($title_three) {
-    $list_class .= " triple_list";
-  }
-  if ($title_four){
-    $list_class .= " quad_list";
-  }
-
-	if(is_page($post->ID)) {
-		$c_tabbox = $pid['custom_meta_hide_tabsystem'][0];
-		if($c_tabbox == "on"){
-			return;
-		} else {
-
-			echo '<div class="content-tabs"><ul id="menu-custom-content-menu" class="menu">';
-
-			if($title_one){
-				echo '<li class="menu-item active ' . $list_class .'"><a href="tab-one">'.$title_one.'</a></li>';
-			}
-			if($title_two){
-				echo '<li class="menu-item ' . $list_class .'"><a href="tab-two">'.$title_two.'</a></li>';
-			}
-			if($title_three){
-				echo '<li class="menu-item ' . $list_class .'"><a href="tab-three">'.$title_three.'</a></li>';
-			}
-			if($title_four){
-				echo '<li class="menu-item ' . $list_class .'"><a href="tab-four">'.$title_four.'</a></li>';
-			}
-
-			echo '</ul></div>';
-
-			if($title_one){
-				echo '<div id="tab-one" class="apollo-tabs">'.do_shortcode($content_one_decode).'</div>';
-			}
-			if($title_two){
-				echo '<div id="tab-two" class="apollo-tabs">'.do_shortcode($content_two_decode).'</div>';
-			}
-			if($title_three){
-				echo '<div id="tab-three" class="apollo-tabs">'.do_shortcode($content_three_decode).'</div>';
-			}
-			if($title_four){
-				echo '<div id="tab-four" class="apollo-tabs">'.do_shortcode($content_four_decode).'</div>';
-			}
-		}
-
-	} else {
-		return;
-	}
-
-}
-
-/* ----------------------------------------------------------------------------------- */
-/* Footer Widgets
-/* ----------------------------------------------------------------------------------- */
+/* Footer Widgets */
 function footer_widget_one_init() {
     register_sidebar( array(
         'name' => __( 'Footer Widget One', 'UFandShands' ),
@@ -1948,5 +1880,84 @@ function footer_widget_three(){
     return;
   }
 }
+/* Footer Widgets End */
 
+/* ----------------------------------------------------------------------------------- */
+/*  Apollo Tab System
+/* ----------------------------------------------------------------------------------- */
+function ufandshands_tabSystem(){
+	$pid = get_post_custom($post->ID);
+
+	$title_one = $pid['custom_meta_tab1_title'][0];
+	$content_one = $pid['custom_meta_tab1_html'][0];
+  $content_one_decode = htmlspecialchars_decode($content_one);
+
+	$title_two = $pid['custom_meta_tab2_title'][0];
+	$content_two = $pid['custom_meta_tab2_html'][0];
+  $content_two_decode = htmlspecialchars_decode($content_two);
+
+
+  $title_three = $pid['custom_meta_tab3_title'][0];
+	$content_three = $pid['custom_meta_tab3_html'][0];
+	$content_three_decode = htmlspecialchars_decode($content_three);
+
+  $title_four = $pid['custom_meta_tab4_title'][0];
+	$content_four = $pid['custom_meta_tab4_html'][0];
+  $content_four_decode = htmlspecialchars_decode($content_four);
+
+   if($title_one){
+    $list_class = "single_list";
+  }
+  if ($title_two) {
+    $list_class .= " double_list";
+  }
+  if ($title_three) {
+    $list_class .= " triple_list";
+  }
+  if ($title_four){
+    $list_class .= " quad_list";
+  }
+
+	if(is_page($post->ID)) {
+		$c_tabbox = $pid['custom_meta_hide_tabsystem'][0];
+		if($c_tabbox == "on"){
+			return;
+		} else {
+
+			echo '<div class="content-tabs"><ul id="menu-custom-content-menu" class="menu">';
+
+			if($title_one){
+				echo '<li class="menu-item active ' . $list_class .'"><a href="tab-one">'.$title_one.'</a></li>';
+			}
+			if($title_two){
+				echo '<li class="menu-item ' . $list_class .'"><a href="tab-two">'.$title_two.'</a></li>';
+			}
+			if($title_three){
+				echo '<li class="menu-item ' . $list_class .'"><a href="tab-three">'.$title_three.'</a></li>';
+			}
+			if($title_four){
+				echo '<li class="menu-item ' . $list_class .'"><a href="tab-four">'.$title_four.'</a></li>';
+			}
+
+			echo '</ul></div>';
+
+			if($title_one){
+				echo '<div id="tab-one" class="apollo-tabs">'.do_shortcode($content_one_decode).'</div>';
+			}
+			if($title_two){
+				echo '<div id="tab-two" class="apollo-tabs">'.do_shortcode($content_two_decode).'</div>';
+			}
+			if($title_three){
+				echo '<div id="tab-three" class="apollo-tabs">'.do_shortcode($content_three_decode).'</div>';
+			}
+			if($title_four){
+				echo '<div id="tab-four" class="apollo-tabs">'.do_shortcode($content_four_decode).'</div>';
+			}
+		}
+
+	} else {
+		return;
+	}
+
+}
 ?>

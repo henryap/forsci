@@ -79,6 +79,7 @@ body[data-useragent*='MSIE 10.0'] #primary-nav ul.children li.page_item_has_chil
   }
 
 .main-banner .main-banner-meta h1 sup{font-size: .6em;}
+.main-banner .apply-main-banner-meta h1{background-color: rgba(255,255,255,0.8);padding: 10px;width: 100%;}
 
 /*Main Banner Form*/
 .main-banner .main-banner-form {background-color: #243777;}
@@ -751,6 +752,22 @@ div.su-expand-link{float: right; margin-right: 10px;}
   text-decoration: none;
 }
 
+/*Explore Button*/
+article .explore_btn {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1em;
+    display: block;
+}
+
+article .explore_btn a:hover {
+    background: #214291;
+    color: #fff;
+    text-decoration: underline;
+    border-bottom: 1px solid #214291;
+}  
+
+
 /*Fixes issue with sizing tabs*/
 .content-tabs ul.menu li a{margin: 0 auto;}
 
@@ -807,8 +824,6 @@ div.su-expand-link{float: right; margin-right: 10px;}
 .footer-cell{margin-bottom: 15px;}
 .cell-container:last-child .footer-cell{margin-bottom: 0px;}
 }
-
-
 @media (max-width: 600px){
 .main-banner{background-size: 640px !important;}
 
